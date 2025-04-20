@@ -305,6 +305,8 @@
     .hamburger-menu-container {
       display: flex;
     }
+
+    
   
     #check {
       display: block;
@@ -466,26 +468,27 @@ background-color: #283618;
 
   .hero3 {
     background: url("https://junglesafariindia.in/mainsite/assets/img/BG.jpg") no-repeat center center/cover;
-    height: 95vh;
+   max-width: 100uv;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 20px; /* padding para evitar desbordes en móviles */
   }
   
   .overlay2 {
-    
+    background-color: rgba(0, 0, 0, 0.5); /* overlay oscuro para mejor legibilidad */
     padding: 40px;
     border-radius: 16px;
     max-width: 90%;
+    color: white;
   }
   
   .hero3 h1 {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 20px;
-    color: white;
   }
   
   .hero3 p {
@@ -507,19 +510,20 @@ background-color: #283618;
   .cta-button2:hover {
     background-color: #00c853;
   }
-  
- 
+
+
   @media (max-width: 768px) {
-    .hero h1 {
+    .hero3 h1 {
       font-size: 1.8rem;
     }
   
-    .hero p {
+    .hero3 p {
       font-size: 1rem;
     }
   
-    .cta-button {
+    .cta-button2 {
       padding: 10px 20px;
+      font-size: 1rem;
     }
   }
 
@@ -693,143 +697,136 @@ background-color: #283618;
 
 
  .container91 {
-    position:relative;
-    width:1200px;
-    height:600px;
-    margin-top: 50px !important;
-    padding: 40px; 
-    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
 }
+
 .container91 .box {
-    position:relative;
-    width:calc(400px - 60px);
-    height:calc(250px - 30px);
-    background:#000;
-   
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    height: 260px;
+    background: #000;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
 
+.container91 .box:hover {
+    transform: scale(1.03);
+}
 
-    float:left;
+.container91 .imgBox {
+    position: relative;
+    height: 100%;
+}
 
+.container91 .imgBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
 
-
-    margin:15px;
-    box-sizing:border-box;
-    overflow:hidden;
-    box-shadow:0 5px 10px rgba(0,0,0,.8);
-}
-.container91 .box:before {
-    content:'';
-    position:absolute;
-    top:10px;
-    left:10px;
-    right:10px;
-    bottom:10px;
-    border-top:1px solid #fff;
-    border-bottom:1px solid #fff;
-    box-sizing:border-box;
-    transition:0.5s;
-    transform: scaleX(0);
-    opacity:0;
-    
-}
-.container91 .box:hover:before {
-    transform:scaleX(1);
-    opacity:1;
-}
-.container91 .box:after {
-    content:'';
-    position:absolute;
-    top:10px;
-    left:10px;
-    right:10px;
-    bottom:10px;
-   
-    transition:0.5s;
-    transform: scaleY(0);
-    opacity:0;
-}
-.container91 .box:hover:after {
-    transform:scaleY(1);
-    opacity:1;
-}
-.container91 .box .imgBox {
-    position:relative;
-}
-.container91 .box .imgBox img {
-    width:100%;
-    transition:0.5s;
-}
 .container91 .box:hover .imgBox img {
-    opacity:.2;
-    transform:scale(1.2);
+    opacity: 0.2;
+    transform: scale(1.1);
 }
-.container91 .box .content {
-    position:absolute;
-    width:100%;
-    top:50%;
-    transform:translateY(-50%);
-    z-index:2;
-    padding:20px;
-    box-sizing:border-box;
-    text-align:center;
-    
+
+.container91 .content {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    text-align: center;
+    transform: translateY(-50%);
+    z-index: 2;
+    color: #fff;
 }
-.container91 .box .content h2 {
-    margin: 0 0 10px;
-    padding:0;
-    color:#fff;
-    transition:0.5s;
-    transform:translateY(-50px);
-    opacity:0;
-    visibility:hidden;
-    
-    
+
+.container91 .content h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.5s ease;
 }
-.container91 .box .content p {
-    margin:0;
-    padding:0;
-    color:#fff;
-    transform:translateY(50px);
-    opacity:0;
-    visibility:hidden;
-    
+
+.container91 .content p {
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
 }
-.container91 .box:hover .content h2,
-.container91 .box:hover .content P {
-    opacity:1;
-    visibility:visible;
-    transform:translateY(0px);
-    
-}
-.content .btn009{
-    margin: 0 0 10px;
-    padding:0;
-    color:#fff;
-    transition:0.5s;
-    transform:translateY(-50px);
-    opacity:0;
-    visibility:hidden;
-    margin-top: 20px;
-    width: 90px;
-    height: 30px;
+
+.container91 .btn009 {
+    margin-top: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    background-color: #16DD7D;
+    color: #fff;
+    padding: 8px 16px;
     border: none;
     border-radius: 5px;
-    background-color: #16DD7D;
-    font-weight: 700;
- }
-  
-
-.container91 .box:hover .content .btn009 {
-    opacity:1;
-    visibility:visible;
-    transform:translateY(0px);
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
 }
 
-@media (max-width: 600px) {
+.container91 .btn009 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.container91 .box:hover .content h2,
+.container91 .box:hover .content p,
+.container91 .box:hover .btn009 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
     .container91 {
-         display: grid;
-         columns: 1;
-           margin-left: 5%;
+        padding: 30px 10px;
+        gap: 15px;
+    }
+
+    .container91 .box {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .container91 .imgBox {
+        height: 200px;
+    }
+
+    .container91 .content {
+        position: static;
+        transform: none;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 15px;
+        color: white;
+    }
+
+    .container91 .box:hover .imgBox img {
+        opacity: 1;
+        transform: none;
+    }
+
+    .container91 .box:hover .content h2,
+    .container91 .box:hover .content p,
+    .container91 .box:hover .btn009 {
+        opacity: 1;
+        transform: none;
     }
 }
- 
